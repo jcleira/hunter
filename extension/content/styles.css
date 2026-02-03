@@ -1,0 +1,237 @@
+/* Hunter - AI Attribution Styles */
+
+/* AI indicator dot */
+.hunter-ai-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #f97316;
+  margin-right: 4px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.hunter-ai-indicator:hover {
+  transform: scale(1.3);
+}
+
+/* AI line highlight (subtle) */
+.hunter-ai-line {
+  background-color: rgba(249, 115, 22, 0.08) !important;
+}
+
+.hunter-ai-line:hover {
+  background-color: rgba(249, 115, 22, 0.15) !important;
+}
+
+/* AI percentage badge in file header */
+.hunter-ai-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #c2410c;
+  background-color: #ffedd5;
+  border-radius: 12px;
+  border: 1px solid #fdba74;
+}
+
+.hunter-ai-badge-icon {
+  margin-right: 4px;
+}
+
+/* Session popup */
+.hunter-popup {
+  position: absolute;
+  z-index: 1000;
+  min-width: 320px;
+  max-width: 480px;
+  background: white;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(140, 149, 159, 0.2);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+
+.hunter-popup-header {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #d0d7de;
+  background-color: #f6f8fa;
+  border-radius: 8px 8px 0 0;
+}
+
+.hunter-popup-header-icon {
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+.hunter-popup-header-title {
+  font-weight: 600;
+  color: #24292f;
+}
+
+.hunter-popup-header-session {
+  margin-left: auto;
+  font-size: 12px;
+  color: #57606a;
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace;
+}
+
+.hunter-popup-content {
+  padding: 16px;
+}
+
+.hunter-popup-section {
+  margin-bottom: 12px;
+}
+
+.hunter-popup-section:last-child {
+  margin-bottom: 0;
+}
+
+.hunter-popup-section-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #57606a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.hunter-popup-plan {
+  padding: 12px;
+  background-color: #f6f8fa;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #24292f;
+  max-height: 200px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace;
+}
+
+.hunter-popup-summary {
+  color: #24292f;
+  line-height: 1.5;
+}
+
+.hunter-popup-footer {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid #d0d7de;
+  background-color: #f6f8fa;
+  border-radius: 0 0 8px 8px;
+}
+
+.hunter-popup-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #24292f;
+  background-color: #f6f8fa;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.hunter-popup-btn:hover {
+  background-color: #eaeef2;
+}
+
+.hunter-popup-btn-icon {
+  margin-right: 4px;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .hunter-popup {
+    background: #161b22;
+    border-color: #30363d;
+  }
+
+  .hunter-popup-header {
+    background-color: #21262d;
+    border-color: #30363d;
+  }
+
+  .hunter-popup-header-title {
+    color: #c9d1d9;
+  }
+
+  .hunter-popup-header-session {
+    color: #8b949e;
+  }
+
+  .hunter-popup-section-title {
+    color: #8b949e;
+  }
+
+  .hunter-popup-plan {
+    background-color: #21262d;
+    color: #c9d1d9;
+  }
+
+  .hunter-popup-summary {
+    color: #c9d1d9;
+  }
+
+  .hunter-popup-footer {
+    background-color: #21262d;
+    border-color: #30363d;
+  }
+
+  .hunter-popup-btn {
+    color: #c9d1d9;
+    background-color: #21262d;
+    border-color: #30363d;
+  }
+
+  .hunter-popup-btn:hover {
+    background-color: #30363d;
+  }
+
+  .hunter-ai-badge {
+    color: #fdba74;
+    background-color: rgba(249, 115, 22, 0.15);
+    border-color: rgba(249, 115, 22, 0.4);
+  }
+
+  .hunter-ai-line {
+    background-color: rgba(249, 115, 22, 0.1) !important;
+  }
+
+  .hunter-ai-line:hover {
+    background-color: rgba(249, 115, 22, 0.2) !important;
+  }
+}
+
+/* GitHub dark mode class */
+[data-color-mode="dark"] .hunter-popup,
+.dark .hunter-popup {
+  background: #161b22;
+  border-color: #30363d;
+}
+
+[data-color-mode="dark"] .hunter-popup-header,
+.dark .hunter-popup-header {
+  background-color: #21262d;
+  border-color: #30363d;
+}
+
+[data-color-mode="dark"] .hunter-ai-badge,
+.dark .hunter-ai-badge {
+  color: #fdba74;
+  background-color: rgba(249, 115, 22, 0.15);
+  border-color: rgba(249, 115, 22, 0.4);
+}

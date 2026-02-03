@@ -1,0 +1,30 @@
+# Build artifacts
+/build/
+/hunter
+*.exe
+
+# Test coverage
+coverage.out
+coverage.html
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Extension build artifacts
+extension/icons/*.png
+*.zip
+
+# Go
+vendor/
+
+# Temporary files
+*.tmp
+*.log
