@@ -62,7 +62,7 @@ func runStatus(cmd *cobra.Command, args []string) error {
 			fmt.Printf("Debug: Found %d sessions\n", len(sessions))
 			for i, s := range sessions {
 				fmt.Printf("Debug: Session %d: ID=%s, LastActivity=%v, Age=%v\n",
-					i, s.ID[:8], s.LastActivity, time.Since(s.LastActivity))
+					i, shortID(s.ID), s.LastActivity, time.Since(s.LastActivity))
 			}
 		}
 		fmt.Println()

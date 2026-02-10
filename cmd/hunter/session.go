@@ -92,13 +92,8 @@ func listSessions(projectPath string) error {
 			status = "active"
 		}
 
-		shortID := sess.ID
-		if len(shortID) > 8 {
-			shortID = shortID[:8]
-		}
-
 		fmt.Printf("  %s  %-10s  %s ago\n",
-			shortID,
+			shortID(sess.ID),
 			status,
 			formatDuration(time.Since(sess.LastActivity)))
 
@@ -184,7 +179,7 @@ func outputSessionText(sess *session.Session) error {
 
 	fmt.Println()
 	fmt.Println("Commands:")
-	fmt.Printf("  hunter restore %s    # Recreate session context\n", sess.ID[:8])
+	fmt.Printf("  hunter restore %s    # Recreate session context\n", shortID(sess.ID))
 
 	return nil
 }

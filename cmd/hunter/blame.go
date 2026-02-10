@@ -91,7 +91,7 @@ func runBlame(cmd *cobra.Command, args []string) error {
 		bl := blameLine{
 			LineNumber: line.LineNumber,
 			Content:    line.Content,
-			Commit:     line.Commit[:8],
+			Commit:     shortID(line.Commit),
 			IsAI:       isAI,
 			SessionID:  trailers.SessionID,
 			Slug:       trailers.Slug,

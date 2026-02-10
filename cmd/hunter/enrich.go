@@ -82,7 +82,7 @@ func runEnrich(cmd *cobra.Command, args []string) error {
 		if existing != nil {
 			skipped++
 			if enrichVerbose {
-				fmt.Printf("  %s: already enriched\n", commit[:8])
+				fmt.Printf("  %s: already enriched\n", shortID(commit))
 			}
 			continue
 		}
@@ -97,14 +97,14 @@ func runEnrich(cmd *cobra.Command, args []string) error {
 		if trailers.SessionID == "" {
 			noSession++
 			if enrichVerbose {
-				fmt.Printf("  %s: no AI session\n", commit[:8])
+				fmt.Printf("  %s: no AI session\n", shortID(commit))
 			}
 			continue
 		}
 
 		// Found AI session - try to enrich
 		if enrichVerbose {
-			fmt.Printf("  %s: enriching (session %s)\n", commit[:8], trailers.SessionID[:8])
+			fmt.Printf("  %s: enriching (session %s)\n", shortID(commit), shortID(trailers.SessionID))
 		}
 
 		// Find the session
@@ -140,7 +140,7 @@ func runEnrich(cmd *cobra.Command, args []string) error {
 		noteData := notes.BuildNoteData(sess, filesChanged, "")
 
 		if enrichDryRun {
-			fmt.Printf("Would enrich %s with session %s\n", commit[:8], trailers.SessionID[:8])
+			fmt.Printf("Would enrich %s with session %s\n", shortID(commit), shortID(trailers.SessionID))
 			if sess.PlanFile != "" {
 				fmt.Printf("  Plan: %s\n", sess.PlanFile)
 			}
@@ -150,7 +150,7 @@ func runEnrich(cmd *cobra.Command, args []string) error {
 
 		// Store the note
 		if err := store.Set(commit, noteData); err != nil {
-			fmt.Fprintf(os.Stderr, "Failed to enrich %s: %v\n", commit[:8], err)
+			fmt.Fprintf(os.Stderr, "Failed to enrich %s: %v\n", shortID(commit), err)
 			continue
 		}
 

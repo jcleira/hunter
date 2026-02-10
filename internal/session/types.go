@@ -34,20 +34,3 @@ type Session struct {
 	// IsRunning indicates if the AI process is currently running
 	IsRunning bool `json:"is_running"`
 }
-
-// NoteData represents the data stored in git notes for a commit
-type NoteData struct {
-	SessionID   string   `json:"session_id"`
-	Tool        string   `json:"tool"`
-	Model       string   `json:"model,omitempty"`
-	Plan        string   `json:"plan,omitempty"`
-	Summary     string   `json:"summary,omitempty"`
-	FileChanged []string `json:"files_changed,omitempty"`
-	SessionRef  *SessionRef `json:"session_ref,omitempty"`
-}
-
-// SessionRef contains information for restoring a session locally
-type SessionRef struct {
-	Path         string `json:"path"`
-	SetupCommand string `json:"setup_command"`
-}

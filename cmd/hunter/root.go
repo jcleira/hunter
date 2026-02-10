@@ -26,3 +26,11 @@ Commands:
 func init() {
 	// Commands are added in their respective files
 }
+
+// shortID returns the first 8 characters of an ID, or the full ID if shorter
+func shortID(id string) string {
+	if len(id) > 8 {
+		return id[:8]
+	}
+	return id
+}

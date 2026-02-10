@@ -6,6 +6,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strconv"
 	"strings"
 )
 
@@ -100,7 +101,7 @@ func (r *Repo) GetTrailer(commit, key string) (string, error) {
 func (r *Repo) ListCommitsWithTrailer(key string, count int) ([]string, error) {
 	args := []string{"-C", r.Path, "log", "--format=%H %(trailers:key=" + key + ",valueonly)"}
 	if count > 0 {
-		args = append(args, "-n", string(rune(count+'0')))
+		args = append(args, "-n", strconv.Itoa(count))
 	}
 
 	cmd := exec.Command("git", args...)
